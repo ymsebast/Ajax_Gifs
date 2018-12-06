@@ -73,8 +73,8 @@
             // Generic function for capturing the movie name from the data-attribute
             function alertMovieName() {
                 // Here we construct our URL
-                var animal = $(this).attr("data-name");
-                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+                var animal = $(this).attr("data-name").toLowerCase();
+                var queryURL = "https://api.giphy.com/v1/gifs/search?q=anime_" +
                     animal + "&api_key=dc6zaTOxFJmzC";
                 console.log(animal, queryURL)
                 //  run ajax on button clicked
