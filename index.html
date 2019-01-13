@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Giphy HW</title>
+    <title>Gif Library</title>
     <style type="text/css">
         button,
         div,
@@ -11,22 +11,44 @@
         input {
             margin: 10px;
         }
+
+        #gif-btn {
+            border-radius: 25px;
+            border: 2px solid #ee6e73;
+            padding: 10px;
+
+        }
     </style>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </head>
 
 <body>
 
     <div class="container">
-        <h1>How Are You Feeling?</h1>
-        <!-- Gifs will get dumped here -->
-        <div id="gif-view"></div>
-
+        <div class="row">
+            <div class="col" id="gif-btn">
+                <!-- Gifs will get dumped here -->
+                <div id="gif-view"></div>
+            </div>
+        </div>
         <form id="gif-form">
-            <label for="gif-input">Submit</label>
-            <input type="text" id="gif-input"><br>
-
-            <!-- Button triggers new gif to be added -->
-            <input id="add-gif" type="submit" value="Add a Gif">
+            <!-- Search input bar -->
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="gif-input" type="text" class="validate">
+                    <label for="gif-input">Today I feel... </label>
+                </div>
+                <div class="col s3">
+                    <!-- Button triggers new gif to be added -->
+                    <button type='submit' id="add-gif" class='btn-large waves-effect waves-light red lighten-1' style='margin: 5px'>Add
+                        a Gif</button>
+                </div>
+            </div>
             <div id="gif-view"></div>
 
             <div id="gif-output"></div>
@@ -40,9 +62,7 @@
             function renderButtons() {
                 $("#gif-view").html("");
                 for (var i = 0; i < gifs.length; i++) {
-                    // var button = $("<button id='movie' type='submit' value='" + gifs[i] + "'>" + gifs[i] + "</button>");
-                    // $("#gif-view").append(button);
-                    var a = $("<button>");
+                    var a = $("<button type='submit' class='btn waves-effect waves-light red lighten-1' style='margin: 5px'>");
                     // Adding a class
                     a.addClass("gif");
                     // Added a data-attribute
@@ -89,10 +109,10 @@
                         var animalDiv = $("<div>")
                         //var p = $("<p>").text(results[i].rating)
                         var animalImage = $("<img>").attr("src", results[i].images.fixed_height.url);
-                       // animalDiv.append(p)
+                        // animalDiv.append(p)
                         animalDiv.append(animalImage)
                         $("#gif-output").prepend(animalDiv)
-        
+
                     }
 
                 });
